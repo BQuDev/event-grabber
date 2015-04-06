@@ -12,9 +12,14 @@ class CreateKeywordsTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::table('keywords', function(Blueprint $table)
+		Schema::create('keywords', function(Blueprint $table)
 		{
-			//
+
+            $table->increments('id');
+            $table->string('name');
+            $table->string('description');
+            $table->timestamps();
+
 		});
 	}
 
