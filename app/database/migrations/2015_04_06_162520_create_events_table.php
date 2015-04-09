@@ -18,6 +18,8 @@ class CreateEventsTable extends Migration {
             $table->integer('keyword_id');
             $table->string('name');
             $table->string('description');
+            $table->string('img');
+            $table->string('link');
             $table->timestamps();
         });
 	}
