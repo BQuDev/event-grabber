@@ -18,9 +18,9 @@ class EventTableSeeder extends Seeder {
 
         foreach(range(1, 10) as $index)
         {
-            Event::create(array(
+            /*Event::create(array(
 
-            ));
+            ));*/
 
 
 
