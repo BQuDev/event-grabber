@@ -1,10 +1,11 @@
 <?php
 
+
 class UserTableSeeder extends Seeder {
 
     public function run()
     {
-        DB::table('users')->delete();
+        DB::table('users')->truncate();
 
         User::create(array(
             'username' => 'firstuser',
@@ -15,6 +16,8 @@ class UserTableSeeder extends Seeder {
             'username' => 'seconduser',
             'password' => Hash::make('second_password')
         ));
+
+
     }
 
 }
