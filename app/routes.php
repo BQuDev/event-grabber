@@ -25,4 +25,7 @@ Route::group(array('prefix' => 'api/v1', 'before' => 'auth.basic'), function()
 {
     Route::resource('keywords', 'KeywordsController');
     Route::resource('events', 'EventsController');
+    Route::resource('users', 'UsersController');
+    Route::resource('friends', 'FriendsController');
+
 });
