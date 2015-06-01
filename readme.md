@@ -1,25 +1,70 @@
-## Laravel PHP Framework
+## Events Grabber
 
-[![Build Status](https://travis-ci.org/laravel/framework.svg)](https://travis-ci.org/laravel/framework)
-[![Total Downloads](https://poser.pugx.org/laravel/framework/downloads.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Stable Version](https://poser.pugx.org/laravel/framework/v/stable.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Unstable Version](https://poser.pugx.org/laravel/framework/v/unstable.svg)](https://packagist.org/packages/laravel/framework)
-[![License](https://poser.pugx.org/laravel/framework/license.svg)](https://packagist.org/packages/laravel/framework)
+[![Build Status](https://travis-ci.org/BQumobile/ls-master-sheet.svg)](https://travis-ci.org/BQumobile/ls-master-sheet)
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as authentication, routing, sessions, and caching.
+This API designed by Damith Harischandrathilaka @ BQuservices(PVT)LTD. All the public notifications will update here.
 
-Laravel aims to make the development process a pleasing one for the developer without sacrificing application functionality. Happy developers make the best code. To this end, we've attempted to combine the very best of what we have seen in other web frameworks, including frameworks implemented in other languages, such as Ruby on Rails, ASP.NET MVC, and Sinatra.
-
-Laravel is accessible, yet powerful, providing powerful tools needed for large, robust applications. A superb inversion of control container, expressive migration system, and tightly integrated unit testing support give you the tools you need to build any application with which you are tasked.
+API follows all basic routes. ( index , post , put , delete , update & get )
 
 ## Official Documentation
 
-Documentation for the entire framework can be found on the [Laravel website](http://laravel.com/docs).
+Guide lines
+** Use basic Authentication for access.
 
-### Contributing To Laravel
 
-**All issues and pull requests should be filed on the [laravel/framework](http://github.com/laravel/framework) repository.**
 
-### License 
+API methods,
 
-The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
+Event 
+GET -{base}/api/v1/events
+GET -{base}/api/v1/events/{event id}
+POST -{base}/api/v1/events
+DELETE -{base}/api/v1/events/{event id}
+POST - {base}/api/v1/events/{event id}
+
+
+
+## RAW URLs
+
++--------+------------------------------------------+-------------------------+----------------------------+----------------+---------------+
+| Domain | URI                                      | Name                    | Action                     | Before Filters | After Filters |
++--------+------------------------------------------+-------------------------+----------------------------+----------------+---------------+
+|        | GET|HEAD /                               |                         | Closure                    |                |               |
+|        | GET|HEAD api/v1/keywords                 | api.v1.keywords.index   | KeywordsController@index   | auth.basic     |               |
+|        | GET|HEAD api/v1/keywords/create          | api.v1.keywords.create  | KeywordsController@create  | auth.basic     |               |
+|        | POST api/v1/keywords                     | api.v1.keywords.store   | KeywordsController@store   | auth.basic     |               |
+|        | GET|HEAD api/v1/keywords/{keywords}      | api.v1.keywords.show    | KeywordsController@show    | auth.basic     |               |
+|        | GET|HEAD api/v1/keywords/{keywords}/edit | api.v1.keywords.edit    | KeywordsController@edit    | auth.basic     |               |
+|        | PUT api/v1/keywords/{keywords}           | api.v1.keywords.update  | KeywordsController@update  | auth.basic     |               |
+|        | PATCH api/v1/keywords/{keywords}         |                         | KeywordsController@update  | auth.basic     |               |
+|        | DELETE api/v1/keywords/{keywords}        | api.v1.keywords.destroy | KeywordsController@destroy | auth.basic     |               |
+|        | GET|HEAD api/v1/events                   | api.v1.events.index     | EventsController@index     | auth.basic     |               |
+|        | GET|HEAD api/v1/events/create            | api.v1.events.create    | EventsController@create    | auth.basic     |               |
+|        | POST api/v1/events                       | api.v1.events.store     | EventsController@store     | auth.basic     |               |
+|        | GET|HEAD api/v1/events/{events}          | api.v1.events.show      | EventsController@show      | auth.basic     |               |
+|        | GET|HEAD api/v1/events/{events}/edit     | api.v1.events.edit      | EventsController@edit      | auth.basic     |               |
+|        | PUT api/v1/events/{events}               | api.v1.events.update    | EventsController@update    | auth.basic     |               |
+|        | PATCH api/v1/events/{events}             |                         | EventsController@update    | auth.basic     |               |
+|        | DELETE api/v1/events/{events}            | api.v1.events.destroy   | EventsController@destroy   | auth.basic     |               |
+|        | GET|HEAD api/v1/users                    | api.v1.users.index      | UsersController@index      | auth.basic     |               |
+|        | GET|HEAD api/v1/users/create             | api.v1.users.create     | UsersController@create     | auth.basic     |               |
+|        | POST api/v1/users                        | api.v1.users.store      | UsersController@store      | auth.basic     |               |
+|        | GET|HEAD api/v1/users/{users}            | api.v1.users.show       | UsersController@show       | auth.basic     |               |
+|        | GET|HEAD api/v1/users/{users}/edit       | api.v1.users.edit       | UsersController@edit       | auth.basic     |               |
+|        | PUT api/v1/users/{users}                 | api.v1.users.update     | UsersController@update     | auth.basic     |               |
+|        | PATCH api/v1/users/{users}               |                         | UsersController@update     | auth.basic     |               |
+|        | DELETE api/v1/users/{users}              | api.v1.users.destroy    | UsersController@destroy    | auth.basic     |               |
+|        | GET|HEAD api/v1/friends                  | api.v1.friends.index    | FriendsController@index    | auth.basic     |               |
+|        | GET|HEAD api/v1/friends/create           | api.v1.friends.create   | FriendsController@create   | auth.basic     |               |
+|        | POST api/v1/friends                      | api.v1.friends.store    | FriendsController@store    | auth.basic     |               |
+|        | GET|HEAD api/v1/friends/{friends}        | api.v1.friends.show     | FriendsController@show     | auth.basic     |               |
+|        | GET|HEAD api/v1/friends/{friends}/edit   | api.v1.friends.edit     | FriendsController@edit     | auth.basic     |               |
+|        | PUT api/v1/friends/{friends}             | api.v1.friends.update   | FriendsController@update   | auth.basic     |               |
+|        | PATCH api/v1/friends/{friends}           |                         | FriendsController@update   | auth.basic     |               |
+|        | DELETE api/v1/friends/{friends}          | api.v1.friends.destroy  | FriendsController@destroy  | auth.basic     |               |
++--------+------------------------------------------+-------------------------+----------------------------+----------------+---------------+
+
+
+## Security Vulnerabilities
+
+Since using basic auth , it is easy to access. So keep your Auth. safe.
