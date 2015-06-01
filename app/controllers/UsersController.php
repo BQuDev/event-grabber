@@ -22,6 +22,7 @@ class UsersController extends \BaseController {
     public function create()
     {
         //
+
     }
 
     /**
@@ -33,6 +34,17 @@ class UsersController extends \BaseController {
     public function store()
     {
         //
+        $user = new User();
+        $user->username = Input::get('username');
+        $user->password = Hash::make(Input::get('password'));
+
+        if($user->save()){
+            return Response::json(array(
+                    'error' => false,
+                    'user' => $user->toArray()),
+                200
+            );
+        }
     }
 
     /**
@@ -45,6 +57,16 @@ class UsersController extends \BaseController {
     public function show($id)
     {
         //
+        $user = User::where('id', Auth::user()->id)
+            ->where('id', $id)
+            ->take(1)
+            ->get();
+
+        return Response::json(array(
+                'error' => false,
+                'user' => $user->toArray()),
+            200
+        );
     }
 
     /**
@@ -69,6 +91,25 @@ class UsersController extends \BaseController {
     public function update($id)
     {
         //
+        $user = User::where('id', Auth::user()->id)->find($id);
+
+        if ( Request::get('username') )
+        {
+            $user->username = Request::get('username');
+        }
+
+        if ( Request::get('password') )
+        {
+            $user->password = Hash::make(Request::get('passwords'));
+        }
+
+        $user->save();
+
+        return Response::json(array(
+                'error' => false,
+                'message' => 'user updated'),
+            200
+        );
     }
 
     /**
@@ -81,6 +122,15 @@ class UsersController extends \BaseController {
     public function destroy($id)
     {
         //
+        $user = User::where('id', Auth::user()->id)->find($id);
+
+        $user->delete();
+
+        return Response::json(array(
+                'error' => false,
+                'message' => 'user deleted'),
+            200
+        );
     }
 
 }
