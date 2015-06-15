@@ -21,6 +21,10 @@ Route::get('/authtest', array('before' => 'auth.basic', function()
     return View::make('hello');
 }));
 */
+Route::post('api/v1/username_check', 'UsersController@username_check');
+
+
+
 Route::group(array('prefix' => 'api/v1', 'before' => 'auth.basic'), function()
 {
     Route::resource('keywords', 'KeywordsController');
