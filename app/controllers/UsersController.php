@@ -113,6 +113,24 @@ class UsersController extends \BaseController {
             }
 
     public function sign_in(){
+
+        if(Input::get('username') == ''){
+            return Response::json(array(
+                    'error' => true,
+                    'user' => 'Username empty'),
+                200
+            );
+        }
+        if(Input::get('password') == ''){
+            return Response::json(array(
+                    'error' => true,
+                    'user' => 'Password empty'),
+                200
+            );
+        }
+
+
+
         $user = User::where('username','=',Input::get('username'))->where('password','=',Input::get('password'))->get();
 
         if(!is_null($user)){
