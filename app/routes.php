@@ -21,7 +21,7 @@ Route::get('/authtest', array('before' => 'auth.basic', function()
     return View::make('hello');
 }));
 */
-Route::post('api/v1/users', 'UsersController@store');
+Route::post('api/v1/users', 'UsersController@store_user');
 Route::post('api/v1/username_check', 'UsersController@username_check');
 Route::get('api/v1/fb_sign_in', 'UsersController@fb_sign_in');
 

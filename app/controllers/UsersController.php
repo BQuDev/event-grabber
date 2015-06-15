@@ -113,7 +113,7 @@ class UsersController extends \BaseController {
             }
 
     public function sign_in(){
-        $user = User::where('username','=',Auth::user()->username)->get();
+        $user = User::where('username','=',Input::get('username'))->where('password','=',Input::get('password'))->get();
 
         if(!is_null($user)){
             return Response::json(array(
@@ -129,6 +129,7 @@ class UsersController extends \BaseController {
             );
         }
     }
+
     public function fb_sign_in(){
         if(Input::get('facebook_id') !=''){
         $user = User::where('facebook_id','=',Input::get('facebook_id'))->get();
