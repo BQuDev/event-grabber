@@ -130,9 +130,10 @@ class UsersController extends \BaseController {
         }
     }
     public function fb_sign_in(){
+        if(Input::get('facebook_id') !=''){
         $user = User::where('facebook_id','=',Input::get('facebook_id'))->get();
 
-        if(!is_null($user)){
+        if($user){
             return Response::json(array(
                     'error' => false,
                     'user' => $user->toArray()),
@@ -142,6 +143,13 @@ class UsersController extends \BaseController {
             return Response::json(array(
                     'error' => true,
                     'user' => 'User does not exists'),
+                200
+            );
+        }
+        }else{
+            return Response::json(array(
+                    'error' => true,
+                    'user' => 'Facebook id empty'),
                 200
             );
         }
