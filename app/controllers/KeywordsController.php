@@ -64,7 +64,7 @@ class KeywordsController extends \BaseController {
 	public function show($id)
 	{
 		//
-        $keyword = Url::where('id', $id)
+        $keyword = Keyword::where('id', $id)
             ->take(1)
             ->get();
 
