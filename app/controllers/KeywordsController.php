@@ -11,10 +11,10 @@ class KeywordsController extends \BaseController {
 	public function index()
 	{
 		//
-        $keywords = Keyword::all();
+        $keywords = DB::table('keywords_users_map')->join('users','users.id','=','keywords_users_map.user_id')->join('keywords','keywords.id','=','keywords_users_map.keywords_id')->where('keywords_users_map.user_id','=',Auth::user()->id)->select('keywords.name','keywords.description')->get();
         return Response::json(array(
                 'error' => false,
-                'urls' => $keywords->toArray()),
+                'urls' => $keywords),
             200
         );
 	}

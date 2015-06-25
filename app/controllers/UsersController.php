@@ -63,7 +63,7 @@ class UsersController extends \BaseController {
         }
     }
     public function store()
-    {
+    {return Input::all();
         //
         if(Input::get('username') == ''){
             return Response::json(array(
