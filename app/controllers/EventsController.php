@@ -11,7 +11,11 @@ class EventsController extends \BaseController {
 	public function index()
 	{
 		//
-        $keywords = DB::table('keywords_users_map')->join('users','users.id','=','keywords_users_map.user_id')->join('keywords','keywords.id','=','keywords_users_map.keywords_id')->where('keywords_users_map.user_id','=',Auth::user()->id)->select('keywords.id')->get();
+        $keywords = DB::table('keywords_users_map')->join('users','users.id','=','keywords_users_map.user_id')
+            ->join('keywords','keywords.id','=','keywords_users_map.keywords_id')
+            ->where('keywords_users_map.user_id','=',Auth::user()->id)
+            ->select('keywords.id')
+            ->get();
         return Response::json(array(
                 'error' => false,
                 'urls' => $keywords),

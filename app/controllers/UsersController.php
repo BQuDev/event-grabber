@@ -63,19 +63,20 @@ class UsersController extends \BaseController {
         }
     }
     public function store()
-    {return Input::all();
+    {
+        //return Input::all();
         //
         if(Input::get('username') == ''){
             return Response::json(array(
                     'error' => true,
-                    'user' => 'Username empty'),
+                    'reason' => 'Username empty'),
                 200
             );
         }
         if(Input::get('password') == ''){
             return Response::json(array(
                     'error' => true,
-                    'user' => 'Password empty'),
+                    'reason' => 'Password empty'),
                 200
             );
         }
@@ -99,14 +100,14 @@ class UsersController extends \BaseController {
                 }else{
                     return Response::json(array(
                             'error' => true,
-                            'user' => 'User save failed'),
+                            'reason' => 'User save failed'),
                         200
                     );
                 }
         }else{
             return Response::json(array(
                     'error' => true,
-                    'user' => 'Username already in'),
+                    'reason' => 'Username already in'),
                 200
             );
         }
@@ -117,14 +118,14 @@ class UsersController extends \BaseController {
         if(Input::get('username') == ''){
             return Response::json(array(
                     'error' => true,
-                    'user' => 'Username empty'),
+                    'reason' => 'Username empty'),
                 200
             );
         }
         if(Input::get('password') == ''){
             return Response::json(array(
                     'error' => true,
-                    'user' => 'Password empty'),
+                    'reason' => 'Password empty'),
                 200
             );
         }
@@ -161,14 +162,14 @@ class UsersController extends \BaseController {
         }else{
             return Response::json(array(
                     'error' => true,
-                    'user' => 'User does not exists'),
+                    'reason' => 'User does not exists'),
                 200
             );
         }
         }else{
             return Response::json(array(
                     'error' => true,
-                    'user' => 'Facebook id empty'),
+                    'reason' => 'Facebook id empty'),
                 200
             );
         }

@@ -24,6 +24,7 @@ Route::get('/authtest', array('before' => 'auth.basic', function()
 Route::post('api/v1/user', 'UsersController@store');
 Route::post('api/v1/username_check', 'UsersController@username_check');
 Route::get('api/v1/fb_sign_in', 'UsersController@fb_sign_in');
+Route::get('api/v1/sign_in', 'UsersController@sign_in');
 
 Route::group(array('prefix' => 'api/v1', 'before' => 'auth.basic'), function()
 {
